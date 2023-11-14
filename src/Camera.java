@@ -1,6 +1,6 @@
 public class Camera {
-    int x;
-    int y;
+    public int x;
+    public int y;
 
     public Camera(int x, int y) {
         this.x = x;
