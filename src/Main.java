@@ -15,13 +15,6 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        /*
-        Image spriteSheet = new Image("../data/img/heros.png");
-        ImageView sprite = new ImageView(spriteSheet);
-        sprite.setViewport(new Rectangle2D(20,0,65,100));
-        sprite.setX(200);
-        sprite.setY(300);
-        */
 
         stage.setTitle("Hello world");
         Group root = new Group();
@@ -30,7 +23,13 @@ public class Main extends Application {
         //Scene theScene = new Scene(pane, 600, 400,true);
         Camera cam = new Camera(600,400);
         GameScene theScene = new GameScene(pane,cam);
-        theScene.setFill(Color.BLACK);
+        //theScene.setFill(Color.BLACK);
+        theScene.render(300,0);
+        root.getChildren().add(theScene.left.imview);
+        root.getChildren().add(theScene.right.imview);
+        theScene.numberOfLifes=2;
+        theScene.dispLife(root);
+        root.getChildren().add(theScene.hero.spriteSheet);
 
         stage.setScene(theScene);
         stage.show();
