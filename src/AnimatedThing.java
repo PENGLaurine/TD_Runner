@@ -6,7 +6,7 @@ public abstract class AnimatedThing {
     double x;
     double y;
     ImageView spriteSheet;
-    int attitude;       //ex {0->still, 1->running, 2->jumping up, 3->jumping down}
+    int attitude;
 
     int index;
     long durationFrame;
@@ -26,9 +26,31 @@ public abstract class AnimatedThing {
         this.spriteSheet.setViewport(new Rectangle2D(12,0,sX,sY));
         this.spriteSheet.setX(x);
         this.spriteSheet.setY(y);
+        this.durationFrame = 10;
     }
 
     public ImageView getSpriteSheet() {
         return spriteSheet;
+    }
+
+    public void update(long time){
+
+        if ((int)(time/1000000)%(int)(durationFrame)==0){
+            switch (attitude){              //à adapter selon le spritesheet utilisé
+                case 0:
+                case 2:
+                    maxIndex = 6;
+                    index = (index+1)%maxIndex;
+                    double sheetX = 7 + 83*index;
+                    double sheetY = 160 * attitude;
+                    spriteSheet.setViewport(new Rectangle2D(sheetX,sheetY,sizeX,sizeY));
+                    spriteSheet.setX(x);
+                    spriteSheet.setY(y);break;
+                case 1:
+                case 3:
+                    maxIndex = 2;break;
+            }
+
+        }
     }
 }
