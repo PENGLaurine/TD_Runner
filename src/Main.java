@@ -27,14 +27,14 @@ public class Main extends Application {
         theScene.render(300,0);
         root.getChildren().add(theScene.left.imview);
         root.getChildren().add(theScene.right.imview);
-        theScene.numberOfLifes=2;
+        theScene.numberOfLifes=1;
         theScene.dispLife();
         root.getChildren().add(theScene.life1.imview);
         root.getChildren().add(theScene.life2.imview);
         root.getChildren().add(theScene.life3.imview);
-        root.getChildren().add(theScene.food.imview);
         root.getChildren().add(theScene.hero.spriteSheet);
-
+        root.getChildren().add(theScene.trap.imview);
+        root.getChildren().add(theScene.food.imview);
 
         stage.setScene(theScene);
         stage.show();
