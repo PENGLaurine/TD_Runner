@@ -32,7 +32,9 @@ public class Main extends Application {
         root.getChildren().add(theScene.life1.imview);
         root.getChildren().add(theScene.life2.imview);
         root.getChildren().add(theScene.life3.imview);
+        root.getChildren().add(theScene.food.imview);
         root.getChildren().add(theScene.hero.spriteSheet);
+
 
         stage.setScene(theScene);
         stage.show();
